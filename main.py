@@ -1,12 +1,13 @@
 import pygame
 import sys
+from tkinter import *
 from game_window_class import *
 from button_class import *
 
 WIDTH, HEIGHT = 800, 800
 BACKGROUND = (199, 199, 199)
 FPS = 10
-
+my_window = Tk()
 #-----------------------------------------------#
 
 def get_events():
@@ -132,6 +133,10 @@ clock = pygame.time.Clock()
 game_window = Game_window(window, 100, 180)
 buttons = make_buttons()
 state = 'setting'
+label_1 = Label(my_window, text ="\nRules\nBirths: Each dead cell adjacent to exactly three live neighbors will become live in the next generation.\nDeath by isolation: Each live cell with one or fewer live neighbors will die in the next generation.\nDeath by overcrowding: Each live cell with four or more live neighbors will die in the next generation.\nSurvival: Each live cell with either two or three live neighbors will remain alive for the next generation.\n\nClose to start the game\n", font="arial 20")
+label_1.pack()
+
+my_window.mainloop()
 frame_count = 0
 running = True
 while running:
